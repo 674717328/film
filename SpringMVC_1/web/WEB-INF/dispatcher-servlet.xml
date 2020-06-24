@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+">
+
+    <!-- 1实例 -->
+    <!--<bean name="/hello" class="org.gec.controller.HelloController"/>-->
+    <!-- 2处理映射器 请求的url怎么映射到具体的处理类-->
+    <!--<bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>-->
+    <!-- 3处理适配器 -->
+    <!--<bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/> -->
+
+
+.
+    <!-- 4视图解析器   request.getREquestDispatcher("/WEB-INF/jsp/user_add.jsp").forward(request,response)-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+
+        <property name="prefix" value="/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- 开启支持注解 -->
+    <context:annotation-config></context:annotation-config>
+    <!-- 扫描哪个包下面的类-->
+    <context:component-scan base-package="org.gec.controller"/>
+</beans>
